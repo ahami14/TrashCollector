@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -10,16 +11,38 @@ namespace TrashCollector.Models
     public class Customer
     {
         [Key]
+
+        [DisplayName("ID")]
         public int Id { get; set; }
+
+        [DisplayName("First Name")]
         public string firstName { get; set; }
+
+        [DisplayName("Last Name")]
         public string lastName { get; set; }
+
+        [DisplayName("Street Address")]
         public string streetAddress { get; set; }
+
+        [DisplayName("City")]
         public string cityName { get; set; }
+
+        [DisplayName("State")]
         public string stateName { get; set; }
+
+        [DisplayName("Zip code")]
         public int zipCode { get; set; }
+
+        [DisplayName("Balance due")]
         public double balanceDue { get; set; }
+
+        [DisplayName("Start date")]
         public string startDate { get; set; }
+
+        [DisplayName("End date")]
         public string endDate { get; set; }
+
+        [DisplayName("Confirmed Pickup")]
         public string confirmedPickup { get; set; }
 
         [ForeignKey("ApplicationUser")]

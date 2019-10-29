@@ -1,0 +1,106 @@
+﻿@model TrashCollector.Models.Customer
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.streetAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.streetAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stateName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.balanceDue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.balanceDue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.startDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.startDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.endDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.endDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.confirmedPickup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.confirmedPickup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
