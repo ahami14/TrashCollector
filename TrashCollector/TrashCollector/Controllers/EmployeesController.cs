@@ -24,19 +24,23 @@ namespace TrashCollector.Controllers
             return View(employee1);
         }
 
-        // GET: Employees/Create
+        // GET: Employees/Create/ wil probably be a create profile as well
         public ActionResult Create()
         {
-            return View();
+            Employee employee = new Employee();
+            return View(employee);
         }
 
         // POST: Employees/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Employee employee)
         {
             try
             {
                 // TODO: Add insert logic here
+                Employee employee1 = context.Employees.Where(e => e.Id == employee.Id).FirstOrDefault();
+                context.Employees.Add(employee);
+                context.SaveChanges();
 
                 return RedirectToAction("Index");
             }

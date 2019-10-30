@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,9 +13,10 @@ namespace TrashCollector.Controllers
         ApplicationDbContext context;
 
         // GET: Customers
-        public ActionResult Index(int id)//this will end up being the details page, since this will be the home page for customers
+        public ActionResult Index()//this will end up being the details page, since this will be the home page for customers
         {
-            var customer1 = context.Customers.Where(c => c.Id == id).FirstOrDefault();
+            var currentUser = User.Identity.GetUserId();
+            var customer1 = context.Customers.Where(c => c.ApplicationId == currentUser).FirstOrDefault();//pass in application id and compare to customer id
             return View(customer1);
         }
 
