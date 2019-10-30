@@ -11,6 +11,11 @@ namespace TrashCollector.Controllers
     {
         ApplicationDbContext context;
 
+        public EmployeesController()
+        {
+            context = new ApplicationDbContext();
+        }
+
         // GET: Employees
         public ActionResult Index()//this will be a list of customers
         {

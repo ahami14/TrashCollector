@@ -45,8 +45,10 @@ namespace TrashCollector.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                // TODO: Add insert logic here AND get the current user ID to equal the new customers Application ID
                 Customer customer1 = context.Customers.Where(c => c.Id == customer.Id).FirstOrDefault();
+                var currentUser = User.Identity.GetUserId();
+                customer.ApplicationId = currentUser;
                 context.Customers.Add(customer);
                 context.SaveChanges();
 

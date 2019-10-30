@@ -66,14 +66,6 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.balanceDue, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.balanceDue, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.balanceDue, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.startDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.startDate, new { htmlAttributes = new { @class = "form-control" } })
@@ -89,21 +81,6 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.confirmedPickup, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.confirmedPickup, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.confirmedPickup, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ApplicationId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ApplicationId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ApplicationId, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
