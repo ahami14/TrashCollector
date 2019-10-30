@@ -12,6 +12,11 @@ namespace TrashCollector.Controllers
     {
         ApplicationDbContext context;
 
+        public CustomersController()
+        {
+            context = new ApplicationDbContext();
+        }
+
         // GET: Customers
         public ActionResult Index()//this will end up being the details page, since this will be the home page for customers
         {
