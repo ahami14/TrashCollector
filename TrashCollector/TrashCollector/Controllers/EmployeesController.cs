@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TrashCollector.Models;
 
 namespace TrashCollector.Controllers
 {
     public class EmployeesController : Controller
     {
+        ApplicationDbContext context;
+
         // GET: Employees
-        public ActionResult Index()
+        public ActionResult Index()//this will be a list of customers
         {
             return View();
         }
@@ -17,7 +20,8 @@ namespace TrashCollector.Controllers
         // GET: Employees/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var employee1 = context.Employees.Where(e => e.Id == id).FirstOrDefault();
+            return View(employee1);
         }
 
         // GET: Employees/Create

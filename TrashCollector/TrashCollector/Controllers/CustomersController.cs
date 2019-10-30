@@ -25,7 +25,7 @@ namespace TrashCollector.Controllers
             return View(customer1);
         }
 
-        // GET: Customers/Create
+        // GET: Customers/Create/ more like creating a profile then customer
         public ActionResult Create()
         {
             Customer customer = new Customer();
@@ -88,16 +88,20 @@ namespace TrashCollector.Controllers
         // GET: Customers/Delete/5
         public ActionResult Delete(int id)
         {
+            var customer1 = context.Customers.Where(c => c.Id == id).FirstOrDefault();
             return View();
         }
 
         // POST: Customers/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Customer customer)
         {
             try
             {
                 // TODO: Add delete logic here
+                var deleteCustomer1 = context.Customers.Where(c => c.Id == id).FirstOrDefault();
+                context.Customers.Remove(deleteCustomer1);
+                context.SaveChanges();
 
                 return RedirectToAction("Index");
             }

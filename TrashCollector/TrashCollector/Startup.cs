@@ -52,7 +52,7 @@ namespace TrashCollector
             if (!roleManager.RoleExists("Customer"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Employee";
+                role.Name = "Customer";
                 roleManager.Create(role);
             }
         }
