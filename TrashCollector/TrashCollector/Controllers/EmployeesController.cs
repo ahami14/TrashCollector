@@ -20,7 +20,9 @@ namespace TrashCollector.Controllers
         // GET: Employees
         public ActionResult Index()//this will be a list of customers
         {
-            return View();
+            //we may be able to call a method in here that allows you to see the details of said customer
+            var customers = context.Customers;
+            return View(customers);
         }
 
         // GET: Employees/Details/5
@@ -34,6 +36,7 @@ namespace TrashCollector.Controllers
         public ActionResult Create()
         {
             Employee employee = new Employee();
+
             return View(employee);
         }
 
