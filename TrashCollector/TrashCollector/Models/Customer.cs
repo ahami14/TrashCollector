@@ -42,6 +42,7 @@ namespace TrashCollector.Models
         [DisplayName("End date")]
         public string endDate { get; set; }
 
+        
         [DisplayName("Confirmed Pickup")]
         public bool? confirmedPickup { get; set; }
 

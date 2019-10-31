@@ -109,6 +109,9 @@ namespace TrashCollector.Controllers
             }
         }
 
-
+        public void ConfirmPickup(Customer customer)
+        {
+            
+        }
     }
 }
