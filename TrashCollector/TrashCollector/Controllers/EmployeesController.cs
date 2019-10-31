@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -44,6 +45,8 @@ namespace TrashCollector.Controllers
             {
                 // TODO: Add insert logic here
                 Employee employee1 = context.Employees.Where(e => e.Id == employee.Id).FirstOrDefault();
+                var currentUser = User.Identity.GetUserId();
+                employee.ApplicationId = currentUser;
                 context.Employees.Add(employee);
                 context.SaveChanges();
 
@@ -58,16 +61,20 @@ namespace TrashCollector.Controllers
         // GET: Employees/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var employee1 = context.Employees.Where(e => e.Id == id).FirstOrDefault();
+            return View(employee1);
         }
 
         // POST: Employees/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Employee employee)
         {
             try
             {
                 // TODO: Add update logic here
+                var editEmployee1 = context.Employees.Where(e => e.Id == id).FirstOrDefault();
+                editEmployee1.zipCode = employee.zipCode;
+                editEmployee1.confirmedPickup = employee.confirmedPickup;
 
                 return RedirectToAction("Index");
             }
@@ -98,5 +105,7 @@ namespace TrashCollector.Controllers
                 return View();
             }
         }
+
+
     }
 }

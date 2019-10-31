@@ -14,6 +14,7 @@ namespace TrashCollector.Models
         public int zipCode { get; set; }
         public string confirmedPickup { get; set; }
 
+
         [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
