@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201910311315551_StringToBool1.Designer.cs">
       <DependentUpon>201910311315551_StringToBool1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910311842337_AnotherStringToBool.cs" />
+    <Compile Include="Migrations\201910311842337_AnotherStringToBool.Designer.cs">
+      <DependentUpon>201910311842337_AnotherStringToBool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -279,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910311315551_StringToBool1.resx">
       <DependentUpon>201910311315551_StringToBool1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910311842337_AnotherStringToBool.resx">
+      <DependentUpon>201910311842337_AnotherStringToBool.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

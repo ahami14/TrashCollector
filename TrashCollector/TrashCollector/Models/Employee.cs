@@ -12,7 +12,7 @@ namespace TrashCollector.Models
         [Key]
         public int Id { get; set; }
         public int zipCode { get; set; }
-        public string confirmedPickup { get; set; }
+        public bool? confirmedPickup { get; set; }
 
 
         [ForeignKey("ApplicationUser")]

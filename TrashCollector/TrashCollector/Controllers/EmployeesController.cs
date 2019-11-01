@@ -70,7 +70,7 @@ namespace TrashCollector.Controllers
 
         // POST: Employees/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Employee employee)
+        public ActionResult Edit(int id, Employee employee, Customer customer)
         {
             try
             {
@@ -78,6 +78,7 @@ namespace TrashCollector.Controllers
                 var editEmployee1 = context.Employees.Where(e => e.Id == id).FirstOrDefault();
                 editEmployee1.zipCode = employee.zipCode;
                 editEmployee1.confirmedPickup = employee.confirmedPickup;
+                ConfirmPickup(customer, employee);
 
                 return RedirectToAction("Index");
             }
@@ -109,9 +110,16 @@ namespace TrashCollector.Controllers
             }
         }
 
-        public void ConfirmPickup(Customer customer)
+        public void ConfirmPickup(Customer customer, Employee employee)
         {
-            
+            if (employee.confirmedPickup.GetValueOrDefault(true))
+            {
+                customer.confirmedPickup = true;
+            }
+            else
+            {
+                customer.confirmedPickup = false;
+            }
         }
     }
 }
