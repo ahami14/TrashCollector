@@ -41,7 +41,14 @@ namespace TrashCollector.Models
 
         [DisplayName("End date")]
         public string endDate { get; set; }
+        //Add a column for the weeky pick up date and extra date for pickup
+        //then do a migration and fix changes
 
+        [DisplayName("Weekly Pickup")]
+        public string WeeklyPickup { get; set; }
+
+        [DisplayName("Extra Pickup")]
+        public string ExtraDate { get; set; }
         
         [DisplayName("Confirmed Pickup")]
         public bool? confirmedPickup { get; set; }

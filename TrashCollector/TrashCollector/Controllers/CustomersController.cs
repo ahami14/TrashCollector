@@ -83,6 +83,8 @@ namespace TrashCollector.Controllers
                 editCustomer1.zipCode = customer.zipCode;
                 editCustomer1.startDate = customer.startDate;
                 editCustomer1.endDate = customer.endDate;
+                editCustomer1.WeeklyPickup = customer.WeeklyPickup;
+                editCustomer1.ExtraDate = customer.ExtraDate;
 
                 context.SaveChanges();
 

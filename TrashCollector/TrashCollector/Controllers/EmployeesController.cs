@@ -20,9 +20,20 @@ namespace TrashCollector.Controllers
         // GET: Employees
         public ActionResult Index()//this will be a list of customers
         {
-            //we may be able to call a method in here that allows you to see the details of said customer
-            var customers = context.Customers;
-            return View(customers);
+            //we may be able to call a method in here that allows you to see the details of said customer\
+
+            // figure out which employee is logged in - Application ID
+            //query for employee based on user ID
+            //then you can use zip code to finish query below
+            
+            var currentUser = User.Identity.GetUserId();
+            
+            var employee1 = context.Employees.Where(e => e.ApplicationId == currentUser).FirstOrDefault();
+
+            var customers = context.Customers.Where(c => c.zipCode == employee1.zipCode).FirstOrDefault();
+
+            var customers1 = context.Customers;
+            return View(customers1);
         }
 
         // GET: Employees/Details/5
@@ -78,7 +89,8 @@ namespace TrashCollector.Controllers
                 var editEmployee1 = context.Employees.Where(e => e.Id == id).FirstOrDefault();
                 editEmployee1.zipCode = employee.zipCode;
                 editEmployee1.confirmedPickup = employee.confirmedPickup;
-                ConfirmPickup(customer, employee);
+                context.SaveChanges();
+                // ConfirmPickup(customer, employee);
 
                 return RedirectToAction("Index");
             }
@@ -110,16 +122,17 @@ namespace TrashCollector.Controllers
             }
         }
 
-        public void ConfirmPickup(Customer customer, Employee employee)
+        public ActionResult ConfirmPickup(int id)
         {
-            if (employee.confirmedPickup.GetValueOrDefault(true))
-            {
-                customer.confirmedPickup = true;
-            }
-            else
-            {
-                customer.confirmedPickup = false;
-            }
+            Customer customer = context.Customers.Where(c => c.Id == id).FirstOrDefault();
+            
+            customer.confirmedPickup = true;
+            customer.balanceDue += 20;
+            context.SaveChanges();
+            return RedirectToAction("Index");
+
+            // save changes
+            // redirect to index action
         }
     }
 }
