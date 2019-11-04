@@ -26,11 +26,11 @@ namespace TrashCollector.Controllers
             //query for employee based on user ID
             //then you can use zip code to finish query below
             
-            var currentUser = User.Identity.GetUserId();
+            //var currentUser = User.Identity.GetUserId();
             
-            var employee1 = context.Employees.Where(e => e.ApplicationId == currentUser).FirstOrDefault();
+            //var employee1 = context.Employees.Where(e => e.ApplicationId == currentUser).FirstOrDefault();
 
-            var customers = context.Customers.Where(c => c.zipCode == employee1.zipCode).FirstOrDefault();
+            //var customers = context.Customers.Where(c => c.zipCode == employee1.zipCode).FirstOrDefault();
 
             var customers1 = context.Customers;
             return View(customers1);
